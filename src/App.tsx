@@ -9,7 +9,7 @@ function App(): JSX.Element {
   return (
     <>
       <SearchBar message={typedMessage} changeMessage={setTypedMessage} />
-      <EpisodeList />;
+      <EpisodeList message={typedMessage} />;
       <Footer />
     </>
   );
