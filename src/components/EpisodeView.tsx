@@ -1,6 +1,7 @@
 import { IEpisode } from "../IEpisode";
 import { episodeCode } from "../episodeCode";
 import "../main.css";
+import { tagsRemover } from "../tagsRemover";
 
 interface EpisodeViewProps {
   episode: IEpisode;
@@ -24,7 +25,7 @@ export default function EpisodeView({
         onClick={handleImageClick}
         style={{ cursor: "pointer" }}
       ></img>
-      <p>{episode.summary}</p>
+      <p>{tagsRemover(episode.summary)}</p>
     </div>
   );
 }

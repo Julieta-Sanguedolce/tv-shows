@@ -1,11 +1,15 @@
 import EpisodeView from "./EpisodeView";
-import episodes from "../episodes.json";
 import "../main.css";
+import { IEpisode } from "../IEpisode";
 
-export function EpisodeList(): JSX.Element {
+interface SearchedListProps {
+  searchedList: IEpisode[];
+}
+
+export function EpisodeList({ searchedList }: SearchedListProps): JSX.Element {
   return (
     <div className="flex-container">
-      {episodes.map((e) => (
+      {searchedList.map((e) => (
         <EpisodeView episode={e} key={e.id} />
       ))}
     </div>
