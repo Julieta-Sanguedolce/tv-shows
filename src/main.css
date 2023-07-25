@@ -33,13 +33,13 @@ html {
   text-align: center;
   image-rendering: auto;
   flex: 1 0 calc(10% - 2rem); /* Adjust the width of the flex card */
-  max-width: calc(25% - 2rem); /* Set a maximum width for the flex card */
+  /* max-width: calc(25% - 2rem); Set a maximum width for the flex card */
 }
 
 .card-image {
   padding: 0.5rem;
   margin: 1rem auto; /* Center the image horizontally */
-  width: 80%;
+  width: auto;
   height: auto;
   object-fit: cover;
 }
