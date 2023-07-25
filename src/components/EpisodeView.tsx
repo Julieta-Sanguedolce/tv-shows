@@ -19,13 +19,15 @@ export default function EpisodeView({
       <div className="episode-title">
         {episode.name} - {episodeCode(episode.season, episode.number)}
       </div>
-      <img
-        src={episode.image.medium}
-        alt=""
-        onClick={handleImageClick}
-        style={{ cursor: "pointer" }}
-      ></img>
-      <p>{tagsRemover(episode.summary)}</p>
+      {episode.image && (
+        <img
+          src={episode.image.medium}
+          alt=""
+          onClick={handleImageClick}
+          style={{ cursor: "pointer" }}
+        ></img>
+      )}
+      {episode.summary && <p>{tagsRemover(episode.summary)}</p>}
     </div>
   );
 }

@@ -6,10 +6,11 @@ export function filterEpisodes(
 ): IEpisode[] {
   console.log(message);
 
-  const filteredEpisodes = episodes.filter(
-    (e) =>
-      e.name.toUpperCase().includes(message.toUpperCase()) ||
-      e.summary.toUpperCase().includes(message.toUpperCase())
+  const filteredEpisodes = episodes.filter((e) =>
+    e.summary === null
+      ? e.name.toUpperCase().includes(message.toUpperCase())
+      : e.name.toUpperCase().includes(message.toUpperCase()) ||
+        e.summary.toUpperCase().includes(message.toUpperCase())
   );
 
   return filteredEpisodes;
