@@ -6,11 +6,15 @@ import { useState, useEffect } from "react";
 import { filterEpisodes } from "./filterEpisodes";
 import { IEpisode } from "./IEpisode";
 import { retrieveID } from "./retrieveID";
+import shows from "./shows.json";
 
 function App(): JSX.Element {
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
-  const [selectedShow, setSelectedShow] = useState<string>("Kirby Buckets");
+
+  const [selectedShow, setSelectedShow] = useState<string>(
+    shows.sort((a, b) => a.name.localeCompare(b.name))[0].name
+  );
 
   const showToFetch: string =
     "https://api.tvmaze.com/shows/" + retrieveID(selectedShow) + "/episodes";
@@ -31,8 +35,7 @@ function App(): JSX.Element {
       <SearchBar
         message={searchedTerm}
         changeMessage={setSearchedTerm}
-        count={filteredEpisodes.length}
-        episodes={filteredEpisodes}
+        count={`${filteredEpisodes.length}/${episodes.length}`}
         handleShowSelection={setSelectedShow}
         searchedShow={selectedShow}
       />

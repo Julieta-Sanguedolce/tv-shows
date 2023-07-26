@@ -1,12 +1,9 @@
-//import episodes from "../episodes.json";
-import { IEpisode } from "../IEpisode";
 import shows from "../shows.json";
 
 export interface SearchBarType {
   message: string;
   changeMessage: (st: string) => void;
-  count: number;
-  episodes: IEpisode[];
+  count: string;
   handleShowSelection: (st: string) => void;
   searchedShow: string;
 }
@@ -15,7 +12,6 @@ export function SearchBar({
   message,
   changeMessage,
   count,
-  episodes,
   handleShowSelection,
   searchedShow,
 }: SearchBarType): JSX.Element {
@@ -27,11 +23,13 @@ export function SearchBar({
           handleShowSelection(element.target.value);
         }}
       >
-        {shows.map((s) => (
-          <option value={s.name} key={s.id}>
-            {s.name}
-          </option>
-        ))}
+        {shows
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((s) => (
+            <option value={s.name} key={s.id}>
+              {s.name}
+            </option>
+          ))}
       </select>
       <input
         value={message}
@@ -40,9 +38,7 @@ export function SearchBar({
         }}
         placeholder="Search for episode.."
       />
-      <>
-        Displaying {count}/{episodes.length} episodes
-      </>
+      <>Displaying {count} episodes</>
     </>
   );
 }
