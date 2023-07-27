@@ -17,7 +17,7 @@ export function SearchBar({
 }: SearchBarType): JSX.Element {
   return (
     <>
-      <select
+      {/* <select
         value={searchedShow}
         onChange={(element) => {
           handleShowSelection(element.target.value);
@@ -30,7 +30,7 @@ export function SearchBar({
               {s.name}
             </option>
           ))}
-      </select>
+      </select> */}
       <input
         value={message}
         onChange={(e) => {
