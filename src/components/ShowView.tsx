@@ -20,13 +20,15 @@ export default function ShowView({
       <button className="episode-title" onClick={handleOpenEpisodes}>
         {show.name}
       </button>
-      {show.image && <img src={show.image.medium} alt=""></img>}
-      {show.summary && <p>{tagsRemover(show.summary)}</p>}
-      <div>
-        {show.genres && <p>{show.genres}</p>}
-        {show.status && <p>{show.status}</p>}
-        {show.rating.average && <p>{show.rating.average}</p>}
-        {show.runtime && <p>{show.runtime}</p>}
+      <div className="body-of-episode">
+        {show.image && <img src={show.image.medium} alt=""></img>}
+        {show.summary && <p>{tagsRemover(show.summary)}</p>}
+        <div className="show-details">
+          {show.genres && <p>Genre: {show.genres}</p>}
+          {show.status && <p>Status: {show.status}</p>}
+          {show.rating.average && <p>Rating: {show.rating.average}</p>}
+          {show.runtime && <p>Runtime: {show.runtime}</p>}
+        </div>
       </div>
     </div>
   );

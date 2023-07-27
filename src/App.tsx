@@ -8,12 +8,12 @@ import { retrieveID } from "./retrieveID";
 interface AppProp {
   selectedShow: string;
   setSelectedShow: (st: string) => void;
-  resetSearchedText: (st: string) => void;
+  resetSearchedShow: (st: string) => void;
 }
 function App({
   selectedShow,
   setSelectedShow,
-  resetSearchedText,
+  resetSearchedShow,
 }: AppProp): JSX.Element {
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
@@ -33,7 +33,7 @@ function App({
   const filteredEpisodes = filterEpisodes(episodes, searchedTerm);
   const handleGoHome = () => {
     setSelectedShow("");
-    setSearchedTerm("");
+    resetSearchedShow("");
   };
   return (
     <>

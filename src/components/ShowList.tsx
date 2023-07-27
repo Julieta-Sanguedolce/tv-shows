@@ -8,19 +8,19 @@ import { Footer } from "./Footer";
 
 export function ShowList(): JSX.Element {
   const [selectedShow, setSelectedShow] = useState<string>("");
-  const [searchedTerm, setSearchedTerm] = useState<string>("");
+  const [searchedShow, setSearchedShow] = useState<string>("");
 
-  const filteredShows = filterShows(shows, searchedTerm);
+  const filteredShows = filterShows(shows, searchedShow);
   return (
     <>
       {selectedShow.length === 0 && (
         <div>
           <ShowSearch
-            message={searchedTerm}
-            changeMessage={setSearchedTerm}
+            message={searchedShow}
+            changeMessage={setSearchedShow}
             count={filteredShows.length}
           />
-          <div>
+          <div className="flex-container">
             {filteredShows.map((s) => (
               <ShowView show={s} key={s.id} setSelectedShow={setSelectedShow} />
             ))}
@@ -31,7 +31,7 @@ export function ShowList(): JSX.Element {
         <App
           selectedShow={selectedShow}
           setSelectedShow={setSelectedShow}
-          resetSearchedText={setSearchedTerm}
+          resetSearchedShow={setSearchedShow}
         />
       )}
       <Footer />
