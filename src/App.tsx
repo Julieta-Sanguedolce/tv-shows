@@ -1,5 +1,4 @@
 import { EpisodeList } from "./components/EpisodeList";
-import { Footer } from "./components/Footer";
 import { EpisodeSearch } from "./components/EpisodeSearch";
 import { useState, useEffect } from "react";
 import { filterEpisodes } from "./filterEpisodes";
@@ -45,7 +44,6 @@ function App({
         count={`${filteredEpisodes.length}/${episodes.length}`}
       />
       <EpisodeList searchedList={filteredEpisodes} />;
-      <Footer />
     </>
   );
 }
