@@ -9,13 +9,14 @@ import { retrieveID } from "./retrieveID";
 import shows from "./shows.json";
 import { ShowList } from "./components/ShowList";
 
-function App(): JSX.Element {
+interface AppProp {
+  selectedShow:string,
+}
+function App({selectedShow}:AppProp): JSX.Element {
+  
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
 
-  const [selectedShow, setSelectedShow] = useState<string>(
-    shows.sort((a, b) => a.name.localeCompare(b.name))[0].name
-  );
 
   const showToFetch: string =
     "https://api.tvmaze.com/shows/" + retrieveID(selectedShow) + "/episodes";
@@ -25,7 +26,6 @@ function App(): JSX.Element {
       const episodesFetch = await fetch(showToFetch);
       const jsonContent: IEpisode[] = await episodesFetch.json();
       setEpisodes(jsonContent);
-      console.log("Hello");
     }
     loadEpisodes();
   }, [showToFetch]);
@@ -33,13 +33,10 @@ function App(): JSX.Element {
   const filteredEpisodes = filterEpisodes(episodes, searchedTerm);
   return (
     <>
-      <ShowList />
       <SearchBar
         message={searchedTerm}
         changeMessage={setSearchedTerm}
         count={`${filteredEpisodes.length}/${episodes.length}`}
-        handleShowSelection={setSelectedShow}
-        searchedShow={selectedShow}
       />
       <EpisodeList searchedList={filteredEpisodes} />;
       <Footer />

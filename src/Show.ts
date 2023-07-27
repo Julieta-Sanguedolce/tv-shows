@@ -1,7 +1,7 @@
 export interface Show {
   id: number | null;
   url: string | null;
-  name: string | null;
+  name: string;
   type: string | null;
   language: string | null;
   genres: string[] | null;

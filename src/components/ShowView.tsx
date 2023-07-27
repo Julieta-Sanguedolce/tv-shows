@@ -4,12 +4,17 @@ import { tagsRemover } from "../tagsRemover";
 
 interface ShowViewProps {
   show: Show;
+  setSelectedShow: (st:string) => void;
 }
 
-export default function ShowView({ show }: ShowViewProps): JSX.Element {
+export default function ShowView({ show, setSelectedShow }: ShowViewProps): JSX.Element {
+  
+  const handleOpenEpisodes = () => {setSelectedShow(show.name)}
+
   return (
+
     <div className="flex-card">
-      <div className="episode-title">{show.name}</div>
+      <button className="episode-title" onClick={handleOpenEpisodes}>{show.name}</button>
       {show.image && <img src={show.image.medium} alt=""></img>}
       {show.summary && <p>{tagsRemover(show.summary)}</p>}
       <div>
