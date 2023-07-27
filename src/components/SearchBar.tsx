@@ -1,5 +1,3 @@
-import shows from "../shows.json";
-
 export interface SearchBarType {
   message: string;
   changeMessage: (st: string) => void;

@@ -7,6 +7,7 @@ import { filterEpisodes } from "./filterEpisodes";
 import { IEpisode } from "./IEpisode";
 import { retrieveID } from "./retrieveID";
 import shows from "./shows.json";
+import { ShowList } from "./components/ShowList";
 
 function App(): JSX.Element {
   const [searchedTerm, setSearchedTerm] = useState<string>("");
@@ -32,6 +33,7 @@ function App(): JSX.Element {
   const filteredEpisodes = filterEpisodes(episodes, searchedTerm);
   return (
     <>
+      <ShowList />
       <SearchBar
         message={searchedTerm}
         changeMessage={setSearchedTerm}

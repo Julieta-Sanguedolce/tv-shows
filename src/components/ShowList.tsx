@@ -1,14 +1,12 @@
-import shows from "../shows.json"
-import ShowView from "../components/ShowView";
-import { Show } from "../Show";
+import shows from "../shows.json";
+import ShowView from "./ShowView";
 
-export function ShowList():JSX.Element{
-
-    const firstShow:Show = {shows[0]};
-
-    return(
-        <>
-            <ShowView show={firstShow} />
-        </>
-    )
+export function ShowList(): JSX.Element {
+  return (
+    <>
+      {shows.map((s) => (
+        <ShowView show={s} key={s.id} />
+      ))}
+    </>
+  );
 }
