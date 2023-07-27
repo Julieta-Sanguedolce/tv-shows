@@ -4,8 +4,6 @@ export function filterEpisodes(
   episodes: IEpisode[],
   message: string
 ): IEpisode[] {
-  console.log(message);
-
   const filteredEpisodes = episodes.filter((e) =>
     e.summary === null
       ? e.name.toUpperCase().includes(message.toUpperCase())

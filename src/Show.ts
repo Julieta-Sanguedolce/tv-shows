@@ -4,7 +4,7 @@ export interface Show {
   name: string;
   type: string | null;
   language: string | null;
-  genres: string[] | null;
+  genres: string[];
   status: string | null;
   runtime: number | null | null;
   averageRuntime: number | null;

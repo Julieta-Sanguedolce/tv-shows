@@ -1,22 +1,23 @@
 import { EpisodeList } from "./components/EpisodeList";
 import { Footer } from "./components/Footer";
-import { SearchBar } from "./components/SearchBar";
+import { EpisodeSearch } from "./components/EpisodeSearch";
 import { useState, useEffect } from "react";
-// import episodes from "./episodes.json";
 import { filterEpisodes } from "./filterEpisodes";
 import { IEpisode } from "./IEpisode";
 import { retrieveID } from "./retrieveID";
-import shows from "./shows.json";
-import { ShowList } from "./components/ShowList";
 
 interface AppProp {
-  selectedShow:string,
+  selectedShow: string;
+  setSelectedShow: (st: string) => void;
+  resetSearchedText: (st: string) => void;
 }
-function App({selectedShow}:AppProp): JSX.Element {
-  
+function App({
+  selectedShow,
+  setSelectedShow,
+  resetSearchedText,
+}: AppProp): JSX.Element {
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
-
 
   const showToFetch: string =
     "https://api.tvmaze.com/shows/" + retrieveID(selectedShow) + "/episodes";
@@ -31,9 +32,14 @@ function App({selectedShow}:AppProp): JSX.Element {
   }, [showToFetch]);
 
   const filteredEpisodes = filterEpisodes(episodes, searchedTerm);
+  const handleGoHome = () => {
+    setSelectedShow("");
+    setSearchedTerm("");
+  };
   return (
     <>
-      <SearchBar
+      <button onClick={handleGoHome}>Go home</button>
+      <EpisodeSearch
         message={searchedTerm}
         changeMessage={setSearchedTerm}
         count={`${filteredEpisodes.length}/${episodes.length}`}

@@ -1,14 +1,14 @@
-export interface SearchBarType {
+export interface SearchType {
   message: string;
   changeMessage: (st: string) => void;
-  count: string;
+  count: string | number;
 }
 
-export function SearchBar({
+export function EpisodeSearch({
   message,
   changeMessage,
   count,
-}: SearchBarType): JSX.Element {
+}: SearchType): JSX.Element {
   return (
     <>
       <input
