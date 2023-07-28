@@ -44,7 +44,6 @@ html {
   object-fit: cover;
 }
 
-
 .episode-title {
   border: solid black 1px;
   border-radius: 10px;
@@ -54,14 +53,14 @@ html {
   margin: 0.5rem;
 }
 
-.body-of-episode{
-  padding:2px;
+.body-of-episode {
+  padding: 2px;
 }
 
-.show-details{
-  padding:2px;
-  border:solid black 1px;
+.show-details {
+  padding: 2px;
+  border: solid black 1px;
   border-radius: 10px;
-  font-size:small;
+  font-size: small;
   font-family: "Lobster";
 }

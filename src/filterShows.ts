@@ -1,6 +1,7 @@
 import { Show } from "./Show";
+import shows from "./shows.json";
 
-export function filterShows(shows: Show[], message: string): Show[] {
+export function filterShows(message: string): Show[] {
   const filteredShows = shows.filter((s) =>
     s.summary === null
       ? s.name.toUpperCase().includes(message.toUpperCase()) ||

@@ -24,7 +24,7 @@ export default function ShowView({
         {show.image && <img src={show.image.medium} alt=""></img>}
         {show.summary && <p>{tagsRemover(show.summary)}</p>}
         <div className="show-details">
-          {show.genres && <p>Genre: {show.genres}</p>}
+          {show.genres && <p>Genre: {show.genres.join(" ")}</p>}
           {show.status && <p>Status: {show.status}</p>}
           {show.rating.average && <p>Rating: {show.rating.average}</p>}
           {show.runtime && <p>Runtime: {show.runtime}</p>}

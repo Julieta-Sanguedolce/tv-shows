@@ -1,20 +1,20 @@
-import { EpisodeList } from "./components/EpisodeList";
-import { EpisodeSearch } from "./components/EpisodeSearch";
+import { EpisodeList } from "./EpisodeList";
+import { EpisodeSearch } from "./EpisodeSearch";
 import { useState, useEffect } from "react";
-import { filterEpisodes } from "./filterEpisodes";
-import { IEpisode } from "./IEpisode";
-import { retrieveID } from "./retrieveID";
+import { filterEpisodes } from "../filterEpisodes";
+import { IEpisode } from "../IEpisode";
+import { retrieveID } from "../retrieveID";
 
-interface AppProp {
+interface EpisodeMainDisplayerProp {
   selectedShow: string;
   setSelectedShow: (st: string) => void;
   resetSearchedShow: (st: string) => void;
 }
-function App({
+function EpisodeMainDisplayer({
   selectedShow,
   setSelectedShow,
   resetSearchedShow,
-}: AppProp): JSX.Element {
+}: EpisodeMainDisplayerProp): JSX.Element {
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
 
@@ -48,4 +48,4 @@ function App({
   );
 }
 
-export default App;
+export default EpisodeMainDisplayer;
