@@ -52,3 +52,15 @@ html {
   padding: 0.5rem;
   margin: 0.5rem;
 }
+
+.body-of-episode {
+  padding: 2px;
+}
+
+.show-details {
+  padding: 2px;
+  border: solid black 1px;
+  border-radius: 10px;
+  font-size: small;
+  font-family: "Lobster";
+}

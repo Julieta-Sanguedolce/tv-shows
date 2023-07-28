@@ -1,62 +1,65 @@
 export interface Show {
-  id: number;
-  url: string;
+  id: number | null;
+  url: string | null;
   name: string;
-  type: string;
-  language: string;
+  type: string | null;
+  language: string | null;
   genres: string[];
-  status: string;
-  runtime: number;
-  averageRuntime: number;
-  premiered: string;
-  ended: string;
-  officialSite: string;
+  status: string | null;
+  runtime: number | null | null;
+  averageRuntime: number | null;
+  premiered: string | null;
+  ended: string | null | null;
+  officialSite: string | null | null;
   schedule: {
-    time: string;
-    days: string[];
+    time: string | null;
+    days: string[] | null;
   };
   rating: {
-    average: number | null;
+    average: number | null | null;
   };
-  weight: number;
+  weight: number | null;
   network: {
-    id: number;
-    name: string;
+    id: number | null;
+    name: string | null;
     country: {
-      name: string;
-      code: string;
-      timezone: string;
+      name: string | null;
+      code: string | null;
+      timezone: string | null;
     };
-    officialSite: string | null;
-  };
+    officialSite: string | null | null;
+  } | null;
   webChannel: {
-    id: number;
-    name: string;
+    id: number | null;
+    name: string | null;
     country: {
-      name: string;
-      code: string;
-      timezone: string;
-    };
-    officialSite: string;
-  };
-  dvdCountry: string | null;
+      name: string | null;
+      code: string | null;
+      timezone: string | null;
+    } | null;
+    officialSite: string | null;
+  } | null;
+  dvdCountry: string | null | null;
   externals: {
-    tvrage: number;
-    thetvdb: number;
-    imdb: string;
+    tvrage: number | null;
+    thetvdb: number | null;
+    imdb: string | null | null;
   };
   image: {
-    medium: string;
-    original: string;
+    medium: string | undefined;
+    original: string | undefined;
   };
-  summary: string;
-  updated: number;
+  summary: string | null;
+  updated: number | null;
   _links: {
     self: {
-      href: string;
+      href: string | null;
     };
-    previousepisode: {
-      href: string;
-    };
-  };
+    previousepisode?:
+      | {
+          href: string | null;
+        }
+      | null
+      | undefined;
+  } | null;
 }
